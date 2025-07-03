@@ -108,8 +108,8 @@ export function convertGregorianToJavanese(date: Date) {
 
   const deltaDaysPawukon = Math.floor((date.getTime() - refPawukonDate.getTime()) / oneDay);
 
-  const weekdayIndex = (date.getDay() + 6) % 7;
-  const pasaranIndex = (deltaDaysPawukon + refPasaranIndex + 5) % 5;
+  const weekdayIndex = (date.getUTCDay() + 6) % 7;
+  const pasaranIndex = (deltaDaysPawukon + refPasaranIndex + 4) % 5;
   const wukuIndex = (refWukuIndex + Math.floor(((deltaDaysPawukon + 1) % 210 + 210) % 210 / 7)) % 30;
 
   return {

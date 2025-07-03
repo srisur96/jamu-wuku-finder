@@ -66,7 +66,7 @@ const jamuData = [
     image: "/images/jamu/Maktal.png",
   },
   {
-    wuku: "Markeh",
+    wuku: "Marakeh",
     jamu: "Beras kencur, Jahe, Sunthi, Dhedhes, Rasamala, Madu, Pulosari, Bawang",
     image: "/images/jamu/Markeh.png",
   },

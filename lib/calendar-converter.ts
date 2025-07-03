@@ -96,7 +96,7 @@ export function convertGregorianToJavanese(date: Date) {
     "Bala", "Wugu", "Wayang", "Kulawu", "Dukut", "Watugunung"
   ];
 
-  const refPawukonDate = new Date("1632-12-26T00:00:00Z");
+  const refPawukonDate = new Date("1632-12-26");
   const refPasaranIndex = 1; // Pahing
   const refWukuIndex = 0; // Sinta
   const oneDay = 24 * 60 * 60 * 1000;
@@ -113,7 +113,7 @@ export function convertGregorianToJavanese(date: Date) {
 
   return {
     tanggalMasehi: date.toDateString(),
-    weton: ${javaneseWeekdays[weekdayIndex]} ${pasaran[(pasaranIndex + 5) % 5]},
+    weton: `${javaneseWeekdays[weekdayIndex]} ${pasaran[(pasaranIndex + 5) % 5]}`,
     wuku: wukuNames[wukuIndex],
     tanggalJawa: hijriDate.day,
     bulanJawa: bulanHijriyahKeJawa[hijriDate.month - 1],

@@ -96,7 +96,7 @@ export function convertGregorianToJavanese(date: Date) {
     "Bala", "Wugu", "Wayang", "Kulawu", "Dukut", "Watugunung"
   ];
 
-  const refPawukonDate = new Date("1632-12-26");
+  const refPawukonDate = new Date("2000-01-01T00:00:00Z");
   const refPasaranIndex = 1; // Pahing
   const refWukuIndex = 0; // Sinta
   const oneDay = 24 * 60 * 60 * 1000;

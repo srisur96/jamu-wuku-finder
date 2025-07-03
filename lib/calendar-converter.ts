@@ -24,13 +24,6 @@ export function convertGregorianToJavanese(date: Date) {
   const namaTahun = namaTahunJawa[((javaneseYear - 1555 + 8) % 8)];
   const bulanJawa = bulanHijriyahKeJawa[hijriDate.month - 1];
 
-  return {
-    tanggalMasehi: date.toISOString().split("T")[0],
-    weton: `${weekdays[weekdayIndex]} ${pasarans[pasaranIndex]}`,
-    wuku: wukus[wukuIndex],
-    tanggalJawa: hijriDate.day,
-    bulanJawa: bulanJawa,
-    tahunJawa: javaneseYear,
-    namaTahun: namaTahun,
+  
   };
 }

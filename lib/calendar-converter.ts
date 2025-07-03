@@ -1,8 +1,8 @@
 // Function to calculate Absolute Days from Gregorian date
 export function calculateAbsoluteDays(date: Date) {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  const year = date.getUTCFullYear();
+  const month = date.getUTCMonth() + 1;
+  const day = date.getUTCDate();
 
   let a = Math.floor((14 - month) / 12);
   let y = year + 4800 - a;
@@ -97,23 +97,26 @@ export function convertGregorianToJavanese(date: Date) {
     "Bala", "Wugu", "Wayang", "Kulawu", "Dukut", "Watugunung"
   ];
 
+  // Gunakan tanggal dalam UTC agar konsisten di semua zona waktu
+  const dateUTC = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+
   const refPawukonDate = new Date("1632-12-26T00:00:00Z");
   const refPasaranIndex = 1; // Pahing
   const refWukuIndex = 0; // Sinta
   const oneDay = 24 * 60 * 60 * 1000;
 
-  const absDays = calculateAbsoluteDays(date);
+  const absDays = calculateAbsoluteDays(dateUTC);
   const hijriDate = absoluteDaysToHijri(absDays);
   const javaneseYearInfo = hijriToJavaneseYear(hijriDate.year);
 
-  const deltaDaysPawukon = Math.floor((date.getTime() - refPawukonDate.getTime()) / oneDay);
+  const deltaDaysPawukon = Math.floor((dateUTC.getTime() - refPawukonDate.getTime()) / oneDay);
 
-  const weekdayIndex = (date.getUTCDay() + 6) % 7;
+  const weekdayIndex = (dateUTC.getUTCDay() + 6) % 7; // Senin = 0
   const pasaranIndex = (deltaDaysPawukon + refPasaranIndex + 4) % 5;
-  const wukuIndex = (refWukuIndex + Math.floor(((deltaDaysPawukon + 1) % 210 + 210) % 210 / 7)) % 30;
+  const wukuIndex = (refWukuIndex + Math.floor((((deltaDaysPawukon + 1) % 210 + 210) % 210) / 7)) % 30;
 
   return {
-    tanggalMasehi: date.toISOString().split("T")[0],
+    tanggalMasehi: dateUTC.toISOString().split("T")[0],
     weton: `${javaneseWeekdays[weekdayIndex]} ${pasaran[pasaranIndex]}`,
     wuku: wukuNames[wukuIndex],
     tanggalJawa: hijriDate.day,

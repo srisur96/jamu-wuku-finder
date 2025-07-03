@@ -113,7 +113,7 @@ export function convertGregorianToJavanese(date: Date) {
   const wukuIndex = (refWukuIndex + Math.floor(((deltaDaysPawukon + 1) % 210 + 210) % 210 / 7)) % 30;
 
   return {
-    tanggalMasehi: date.toDateString(),
+    tanggalMasehi: date.toISOString().split("T")[0],
     weton: `${weekdays[weekdayIndex]} ${pasarans[pasaranIndex]}`,
     wuku: wukuNames[wukuIndex],
     tanggalJawa: hijriDate.day,

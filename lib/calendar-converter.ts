@@ -114,7 +114,7 @@ export function convertGregorianToJavanese(date: Date) {
 
   return {
     tanggalMasehi: date.toDateString(),
-    weton: `${javaneseWeekdays[weekdayIndex]} ${pasaran[(pasaranIndex + 5) % 5]}`,
+    weton: `${weekdays[weekdayIndex]} ${pasarans[pasaranIndex]}`,
     wuku: wukuNames[wukuIndex],
     tanggalJawa: hijriDate.day,
     bulanJawa: bulanHijriyahKeJawa[hijriDate.month - 1],

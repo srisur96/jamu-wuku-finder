@@ -86,6 +86,7 @@ const bulanHijriyahKeJawa = [
 
 // Main Function - Gregorian Date to Full Javanese Calendar Info
 export function convertGregorianToJavanese(date: Date) {
+  console.log("🧮 Konversi dimulai untuk:", date.toISOString());
   const pasaran = ["Legi", "Pahing", "Pon", "Wage", "Kliwon"];
   const javaneseWeekdays = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Ahad"];
   const wukuNames = [
